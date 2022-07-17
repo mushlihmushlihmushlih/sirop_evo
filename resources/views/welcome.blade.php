@@ -13,6 +13,9 @@
                     <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
                         <a href="/login" class="btn-get-started">Masuk</a>
                     </div>
+                    <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
+                        <a href="/logout" class="btn-get-started">Logout</a>
+                    </div>
                 </div>
             </div>
         </div>

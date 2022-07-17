@@ -28,7 +28,7 @@ class AdminController extends Controller
         $data = DB::table('users')->get();
 
         return view('admin.keluarga', [
-            'title' => 'Data Anggota Keluarga',
+            'title' => 'Data Keluarga',
             'users' => $data
         ]);
     }

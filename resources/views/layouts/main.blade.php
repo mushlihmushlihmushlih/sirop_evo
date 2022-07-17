@@ -60,7 +60,7 @@
                     <li><a href="/panduan">Panduan</a></li>
                     <li></li>
                     @auth
-                    <li><a href="/login"> <i class="bi bi-box-arrow-in-right"></i>{{ auth()->user()->nama_kepala_kk }}</a></li>
+                    <li><a href="/login"> <i class="bi bi-box-arrow-in-right"></i>{{ auth()->user()->username }}</a></li>
                     @else
                     <li><a href="/login"> <i class="bi bi-box-arrow-in-right"></i>Login</a></li>
                     @endauth
