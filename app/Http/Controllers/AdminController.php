@@ -39,4 +39,17 @@ class AdminController extends Controller
             'title' => 'Kontrol Antrian'
         ]);
     }
+    public function poli()
+    {
+        return view('admin.poli', [
+            'title' => 'Poli'
+        ]);
+    }
+    public function dokter()
+    {
+        return view('admin.dokter', [
+            'title' => 'Dokter'
+        ]);
+    }
 }
+

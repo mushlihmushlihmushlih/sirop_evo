@@ -30,5 +30,8 @@ Route::get('/admin', [AdminController::class, 'index']);
 Route::get('/admin/data', [AdminController::class, 'data']);
 Route::get('/admin/antrian', [AdminController::class, 'antrian']);
 Route::get('/admin/data/keluarga', [AdminController::class, 'keluarga']);
+Route::get('/admin/poli', [AdminController::class, 'poli']);
+Route::get('/admin/dokter', [AdminController::class, 'dokter']);
 
+// user
 Route::get('/dashboard', [DashboardController::class, 'index']);
