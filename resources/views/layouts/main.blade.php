@@ -58,20 +58,30 @@
                     <li><a href="/" class="">Beranda</a></li>
                     <li><a href="/antrian">Antrian</a></li>
                     <li><a href="/panduan">Panduan</a></li>
-                    <li></li>
                     @auth
-                    <li><a href="/login"> <i class="bi bi-box-arrow-in-right"></i>{{ auth()->user()->username }}</a></li>
+                        <li>
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->username }}
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end " aria-labelledby="navbarDropdown">
+                                <a href="/dashboard/home" class="dropdown-item text-dark">Dashboard</a>
+                                <a class="dropdown-item text-dark" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
                     @else
-                    <li><a href="/login"> <i class="bi bi-box-arrow-in-right"></i>Login</a></li>
+                        <li><a href="/login"> <i class="bi bi-box-arrow-in-right"></i>Login</a></li>
                     @endauth
-                    
-                </ul>
             </nav><!-- .navbar -->
-
         </div>
     </header><!-- End Header -->
-
-
 
     @yield('content')
 

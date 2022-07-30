@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.dashboard')
 
 @section('content')
     <div class="container-fluid py-4">
@@ -13,18 +13,28 @@
                             <table class="table align-items-center mb-0">
                                 <thead>
                                     <th
-                                        class="text-xxs font-weight-bolder opacity-7">
-                                        Username
+                                        class="text-xxs font-weight-bolder opacity-7 ">
+                                        Waktu Kunjungan
                                     </th>
                                     <th
-                                        class="text-xxs font-weight-bolder opacity-7">
-                                        Email
+                                        class="text-xxs font-weight-bolder opacity-7 ">
+                                        Poli
                                     </th>
-                                    <th class="text-xxs font-weight-bolder opacity-7">Aksi</th>
-                                    </tr>
+                                    <th
+                                        class="text-xxs font-weight-bolder opacity-7 ">
+                                        Dokter
+                                    </th>
+                                    <th
+                                        class="text-xxs font-weight-bolder opacity-7 ">
+                                        Bukti Pendaftaran
+                                    </th>
+                                    <th
+                                        class="text-xxs font-weight-bolder opacity-7 ">
+                                        Keterangan
+                                    </th>
                                 </thead>
                                 <tbody>
-                                    @foreach ($users as $a)
+                                    {{-- @foreach ($users as $a)
                                         <tr class="align-middle">
                                             <td class="align-middle text-center text-sm">{{ $a->username }}</td>
                                             <td class="align-middle text-center text-sm">{{ $a->email }}</td>
@@ -34,7 +44,7 @@
                                                     role="button">Detail</a>
                                             </td>
                                         </tr>
-                                    @endforeach
+                                    @endforeach --}}
                                 </tbody>
                             </table>
                         </div>

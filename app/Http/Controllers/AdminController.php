@@ -41,8 +41,11 @@ class AdminController extends Controller
     }
     public function poli()
     {
+        $data = DB::table('poli')->get();
+
         return view('admin.poli', [
-            'title' => 'Poli'
+            'title' => 'Poli',
+            'poli' => $data
         ]);
     }
     public function dokter()

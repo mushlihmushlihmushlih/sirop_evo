@@ -37,7 +37,7 @@
         <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link {{ $title === 'Home' ? 'active' : '' }}" href="/admin">
+                    <a class="nav-link {{ $title === 'Home' ? 'active' : '' }}" href="/admin/home">
                         <div
                             class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="primary"
@@ -197,16 +197,26 @@
                     </div>
                 </div>
                 @auth
-                    <li class="nav-item d-flex align-items-center">
-                        <a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
-                            <i class="fa fa-user me-sm-1"></i>
-                            <span class="d-sm-inline d-none">{{ auth()->user()->username }}</span>
+                    <li class="nav-item dropdown pe-2 d-flex align-items-center">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->username }}
                         </a>
-                    </li>
-                @endauth
+                        <div class="dropdown-menu dropdown-menu-end " aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item text-dark" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </div>
+                    @endauth
             </div>
         </nav>
-        @yield('content')
+        @yield('content') 
     </main>
 
 

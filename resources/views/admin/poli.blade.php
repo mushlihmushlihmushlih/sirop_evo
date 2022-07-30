@@ -13,32 +13,32 @@
                         <table class="table align-items-center mb-0">
                             <thead>
                                 <th
-                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    class="text-xxs font-weight-bolder opacity-7">
                                     Nama Poli
                                 </th>
                                 <th
-                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    class="text-xxs font-weight-bolder opacity-7">
                                     Dokter yang tersedia
                                 </th>
                                 <th
-                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    class="text-xxs font-weight-bolder opacity-7">
                                     Kuota/hari
                                 </th>
-                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Aksi</th>
+                                <th class="text-xxs font-weight-bolder opacity-7">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {{-- @foreach ($users as $a)
+                                @foreach ($poli as $p)
                                     <tr class="align-middle">
-                                        <td class="align-middle text-center text-sm">{{ $a->username }}</td>
-                                        <td class="align-middle text-center text-sm">{{ $a->email }}</td>
+                                        <td class="align-middle text-center text-sm">{{ $p->nama_poli }}</td>
+                                        <td class="align-middle text-center text-sm">{{ $p->kuota }}</td>
                                         <td class="align-middle text-center text-sm">
                                             <a class="text-secondary font-weight-bold text-xs" data-toggle="tooltip"
                                                 data-original-title="Edit user" href="/admin/data/keluarga"
                                                 role="button">Detail</a>
                                         </td>
                                     </tr>
-                                @endforeach --}}
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

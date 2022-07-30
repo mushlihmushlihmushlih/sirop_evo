@@ -9,10 +9,11 @@
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
                         <div class="form-group">
-                            <input id="email" type="email" class="form-control  @error('email') is-invalid @enderror"
-                                name="email" value="{{ old('email') }}" required autocomplete="email"
-                                placeholder="alamat Email" autofocus>
-                            @error('email')
+                            <input id="username" type="username"
+                                class="form-control  @error('username') is-invalid @enderror" name="username"
+                                value="{{ old('username') }}" required autocomplete="username" placeholder="Username"
+                                autofocus>
+                            @error('username')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -35,10 +36,15 @@
                                 {{ __('Login') }}
                             </button>
                             @if (Route::has('password.request'))
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    {{ __('Forgot Your Password?') }}
-                                </a>
+                                <div class="form-group d-md-flex justify-content-center mt-2">
+                                    <a href="{{ route('password.request') }}">
+                                        {{ __('Lupa Password?') }}
+                                    </a>
+                                </div>
                             @endif
+                            <div class="form-group d-md-flex justify-content-center mt-2">
+                                <a href="/register">Belum Punya Akun? Daftar</a>
+                            </div>
                         </div>
                         {{-- <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
                             name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>

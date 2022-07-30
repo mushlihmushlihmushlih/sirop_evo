@@ -2,73 +2,70 @@
 
 
 @section('content')
-
-<div class="container-fluid py-4">
-  <div class="row">
-      <div class="col-8">
-          <div class="card mb-4">
-              <div class="card-header pb-0">
-                  <h6>Informasi Keluarga</h6>
-              </div>
-              <div class="card-body pt-2">
-                Nomor KK :
-                <br>
-              </div>
-              <div class="card-body pt-2">
-                Nama Kepala KK :
-              </div>
-              <div class="card-body pt-2">
-                Alamat :
-              </div>
-          </div>
-      </div>
-      <div class="col-4">
-        <div class="card mb-4">
-            <div class="card-header pb-0">
-                <h6></h6>
+    <div class="container-fluid py-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="card mb-4">
+                    <div class="card-header pb-0">
+                        <h6>Informasi Keluarga</h6>
+                    </div>
+                    <div class="card-body pt-2">
+                        <ul class="list-group">
+                            <li class="list-group-item border-0 d-flex justify-content-left ps-0 mb-2 border-radius-lg">
+                                <div class="d-flex flex-column">
+                                    <span class="mb-2 text-xl">Nomor KK: <span
+                                            class="text-dark font-weight-bold ms-sm-2">{{ $keluarga->nomor_kk }}</span></span>
+                                </div>
+                            </li>
+                            <li class="list-group-item border-0 d-flex justify-content-left ps-0 mb-2 border-radius-lg">
+                                <div class="d-flex flex-column">
+                                    <span class="mb-2 text-xl">Nama Kepala KK: <span
+                                            class="text-dark font-weight-bold ms-sm-2">{{ $keluarga->nama_kepala_kk }}</span></span>
+                                </div>
+                            </li>
+                            <li class="list-group-item border-0 d-flex justify-content-left ps-0 mb-2 border-radius-lg">
+                                <div class="d-flex flex-column">
+                                    <span class="mb-2 text-xl">Alamat: <span
+                                            class="text-dark font-weight-bold ms-sm-2">{{ $keluarga->alamat }}</span></span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-        </div>
-      </div>
-  </div>
-  <div class="row">
-    <div class="col-12">
-        <div class="card mb-4">
-            <div class="card-header pb-0">
-                <h6>Anggota Keluarga</h6>
-            </div>
-            <div class="card-body px-0 pt-0 pb-2">
-                <div class="table-responsive p-0">
-                    <table class="table align-items-center mb-0">
-                        <thead>
-                            <th
-                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                Nama
-                            </th>
-                            <th
-                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                NIK
-                            </th>
-                            <th
-                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                Tanggal Lahir
-                            </th>
-                            <th
-                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                Status Keanggotaan
-                            </th>
-                            <th
-                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                Nomor HP
-                            </th>
-                            <th
-                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                Kartu Berobat
-                            </th>
-                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {{-- @foreach ($users as $a)
+            <div class="row">
+                <div class="col-12">
+                    <div class="card mb-4">
+                        <div class="card-header pb-0">
+                            <h6>Anggota Keluarga</h6>
+                        </div>
+                        <div class="card-body px-0 pt-0 pb-2">
+                            <div class="table-responsive p-0">
+                                <table class="table align-items-center mb-0">
+                                    <thead>
+                                        <th class="text-center  text-xxs font-weight-bolder opacity-7">
+                                            Nama
+                                        </th>
+                                        <th class="text-center  text-xxs font-weight-bolder opacity-7">
+                                            NIK
+                                        </th>
+                                        <th class="text-center  text-xxs font-weight-bolder opacity-7">
+                                            Tanggal Lahir
+                                        </th>
+                                        <th class="text-center  text-xxs font-weight-bolder opacity-7">
+                                            Status Keanggotaan
+                                        </th>
+                                        <th class="text-center  text-xxs font-weight-bolder opacity-7">
+                                            Nomor HP
+                                        </th>
+                                        <th class="text-center  text-xxs font-weight-bolder opacity-7">
+                                            Kartu Berobat
+                                        </th>
+                                        <th class="text-center  text-xxs font-weight-bolder opacity-7">Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {{-- @foreach ($users as $a)
                                 <tr class="align-middle">
                                     <td class="align-middle text-center text-sm">{{ $a->username }}</td>
                                     <td class="align-middle text-center text-sm">{{ $a->email }}</td>
@@ -79,17 +76,29 @@
                                     </td>
                                 </tr>
                             @endforeach --}}
-                        </tbody>
-                    </table>
+
+                                        <tr>
+                                            <td class="text-center text-xs font-weight-bold mb-0">Mushlih
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <button class="btn btn-icon btn-3 btn-primary align-self-end" type="button">
+                                <span class="btn-inner--icon"><i class="ni ni-button-play"></i></span>
+                                <span class="btn-inner--text">With icon</span>
+                            </button>
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-  </div>
-</div>
 
-{{-- <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        {{-- <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
     <h1 class="h2">{{ $title }}</h1>  
   </div> --}}
-
-@endsection
+    @endsection
