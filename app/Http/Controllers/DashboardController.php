@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Anggota;
 use Illuminate\Http\Request;
 use App\Models\keluarga;
 
@@ -13,9 +14,11 @@ class DashboardController extends Controller
         $user = auth()->user();
 
         $keluarga = Keluarga::where("id_user",$user->id)->first();
+        $anggota = Anggota::where('id_keluarga', $keluarga->id_keluarga)->get();
         return view('dashboard.index', [
             'title' => 'Home',
-            'keluarga' => $keluarga
+            'keluarga' => $keluarga,
+            'anggota' => $anggota
         ]);
     }
 

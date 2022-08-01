@@ -2060,10 +2060,6 @@ section {
   justify-content: center;
 }
 
-i {
-  padding: 5px;
-  }
-
 .blog .blog-pagination li.active a,
 .blog .blog-pagination li:hover a {
   background: var(--color-primary);

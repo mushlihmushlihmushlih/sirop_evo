@@ -65,40 +65,94 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {{-- @foreach ($users as $a)
-                                <tr class="align-middle">
-                                    <td class="align-middle text-center text-sm">{{ $a->username }}</td>
-                                    <td class="align-middle text-center text-sm">{{ $a->email }}</td>
-                                    <td class="align-middle text-center text-sm">
-                                        <a class="text-secondary font-weight-bold text-xs" data-toggle="tooltip"
-                                            data-original-title="Edit user" href="/admin/data/keluarga"
-                                            role="button">Detail</a>
-                                    </td>
-                                </tr>
-                            @endforeach --}}
-
-                                        <tr>
-                                            <td class="text-center text-xs font-weight-bold mb-0">Mushlih
-                                            </td>
-                                        </tr>
+                                        @foreach ($anggota as $a)
+                                            <tr class="align-middle">
+                                                <td class="align-middle text-center text-sm">{{ $a->nama }}</td>
+                                                <td class="align-middle text-center text-sm">{{ $a->NIK }}</td>
+                                                <td class="align-middle text-center text-sm">{{ $a->tanggal_lahir }}</td>
+                                                <td class="align-middle text-center text-sm">{{ $a->status_keanggotaan }}
+                                                </td>
+                                                <td class="align-middle text-center text-sm">
+                                                    <a class="text-secondary font-weight-bold text-xs" data-toggle="tooltip"
+                                                        data-original-title="Edit user" href="/admin/data/keluarga"
+                                                        role="button">Detail</a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
-
                         </div>
                         <div class="card-body d-flex flex-column">
-                            <button class="btn btn-icon btn-3 btn-primary align-self-end" type="button">
-                                <span class="btn-inner--icon"><i class="ni ni-button-play"></i></span>
-                                <span class="btn-inner--text">With icon</span>
+                            <button class="btn btn-block btn-icon btn-3 btn-success align-self-end" data-bs-toggle="modal"
+                                data-bs-target="#modal-form" type="button">
+                                <span class="btn-inner--icon"><i class="bi bi-person-plus-fill"></i></span>
+                                <span class="btn-inner--text ms-2">Tambah</span>
                             </button>
 
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary" data-backdrop="static" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal">
+                                Launch demo modal
+                            </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            ...
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+                            Launch static backdrop modal
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog"
+                            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        ...
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Understood</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        {{-- <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    {{-- <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
     <h1 class="h2">{{ $title }}</h1>  
   </div> --}}
-    @endsection
+@endsection

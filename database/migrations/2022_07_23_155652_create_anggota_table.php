@@ -13,14 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('Anggota', function (Blueprint $table) {
+        Schema::create('Anggotas', function (Blueprint $table) {
             $table->id('id_anggota');
-            $table->unsignedBigInteger('id_keluarga');
+            $table->foreignId('id_keluarga');
             $table->string('nama');
             $table->string('NIK');
             $table->date('tanggal_lahir');
+            $table->string('nomor_hp');
             $table->enum('status_keanggotaan', ['BPJS', 'umum']);
-            $table->foreign('id_keluarga')->references('id_keluarga')->on('keluargas')->onDelete('cascade');
+            // $table->foreign('id_keluarga')->references('id_keluarga')->on('keluargas')->onDelete('cascade');
         });
     }
 

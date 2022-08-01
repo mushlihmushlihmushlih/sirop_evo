@@ -21,7 +21,7 @@ return new class extends Migration
             $table->text('keterangan');
 
             $table->foreign('id_poli')->references('id_poli')->on('poli')->onDelete('cascade');
-            $table->foreign('id_anggota')->references('id_anggota')->on('anggota')->onDelete('cascade');
+            $table->foreign('id_anggota')->references('id_anggota')->on('anggotas')->onDelete('cascade');
             $table->foreign('id_dokter')->references('id_dokter')->on('dokter')->onDelete('cascade');
         });
     }

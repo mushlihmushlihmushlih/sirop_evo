@@ -15,4 +15,9 @@ class keluarga extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    public function Anggota()
+    {
+        return $this->hasMany('App\Anggota');
+    }
 }

@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('poli', function (Blueprint $table) {
             $table->id('id_poli');
+            $table->foreignId('id_dokter');
             $table->string('nama_poli');
             $table->string('kuota');
         });

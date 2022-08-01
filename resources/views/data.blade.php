@@ -18,7 +18,7 @@
                             <input  type="text" name="nama_kepala_kk" class="form-control rounded-left" placeholder="Nama Kepala KK" required>
                         </div>
                         <div class="form-group mt-3">
-                            <input  type="text" name="alamat" class="form-control rounded-left" placeholder="Alamat" required>
+                            <textarea  type="text" name="alamat" class="form-control rounded-left" placeholder="Alamat" required></textarea>
                         </div>
 
                         <div class="form-group mt-3">
