@@ -35,13 +35,21 @@ Route::post('/register/store', [App\Http\Controllers\DataController::class, 'sto
 
 
 // admin
+//superadmin
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/home', [AdminController::class, 'index'])->name('admin');
     Route::get('/admin/data', [AdminController::class, 'data'])->name('admin');
     Route::get('/admin/antrian', [AdminController::class, 'antrian'])->name('admin');
-    Route::get('/admin/data/keluarga', [AdminController::class, 'keluarga'])->name('admin');
+    Route::get('/admin/antrian/data', [AdminController::class, 'dataAntrian'])->name('admin');
+    Route::get('/admin/data/keluarga/{id}', [AdminController::class, 'keluarga'])->name('admin');
     Route::get('/admin/poli', [AdminController::class, 'poli'])->name('admin');
+    Route::post('/admin/poli', [AdminController::class, 'tambahPoli'])->name('admin');
+    Route::post('/admin/poli/update', [AdminController::class, 'updatePoli'])->name('admin');
+    Route::get('/admin/poli/delete/{id}', [AdminController::class, 'deletePoli'])->name('admin');
     Route::get('/admin/dokter', [AdminController::class, 'dokter'])->name('admin');
+    Route::post('/admin/dokter', [AdminController::class, 'tambahDokter'])->name('admin');
+    Route::post('/admin/dokter/update', [AdminController::class, 'updateDokter'])->name('admin');
+    Route::get('/admin/dokter/delete/{id}', [AdminController::class, 'deleteDokter'])->name('admin');
 });
 
 // user
@@ -49,4 +57,8 @@ Route::middleware(['auth', 'role:user'])->group(function () {
     Route::get('/dashboard/home', [DashboardController::class, 'index'])->name('user');
     Route::get('/dashboard/riwayat', [DashboardController::class, 'riwayat'])->name('user');
     Route::get('/dashboard/akun', [DashboardController::class, 'akun'])->name('user');
+    Route::get('/dashboard/hapus/{id}', [DashboardController::class, 'hapus'])->name('user');
+    Route::post('/dashboard/home/update', [DashboardController::class, 'updateAnggota'])->name('user');
+    Route::post('/dashboard/home/anggota', [DashboardController::class, 'store']);
+    Route::post('/dashboard/akun/ganti', [DashboardController::class, 'ganti']);
 });

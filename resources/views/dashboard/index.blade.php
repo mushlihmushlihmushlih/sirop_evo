@@ -4,7 +4,7 @@
 @section('content')
     <div class="container-fluid py-4">
         <div class="row">
-            <div class="col-12">
+            <div class="col-8">
                 <div class="card mb-4">
                     <div class="card-header pb-0">
                         <h6>Informasi Keluarga</h6>
@@ -43,25 +43,25 @@
                             <div class="table-responsive p-0">
                                 <table class="table align-items-center mb-0">
                                     <thead>
-                                        <th class="text-center  text-xxs font-weight-bolder opacity-7">
+                                        <th class="text-center  text-xs font-weight-bolder opacity-7">
                                             Nama
                                         </th>
-                                        <th class="text-center  text-xxs font-weight-bolder opacity-7">
+                                        <th class="text-center  text-xs font-weight-bolder opacity-7">
                                             NIK
                                         </th>
-                                        <th class="text-center  text-xxs font-weight-bolder opacity-7">
+                                        <th class="text-center  text-xs font-weight-bolder opacity-7">
                                             Tanggal Lahir
                                         </th>
-                                        <th class="text-center  text-xxs font-weight-bolder opacity-7">
+                                        <th class="text-center  text-xs font-weight-bolder opacity-7">
                                             Status Keanggotaan
                                         </th>
-                                        <th class="text-center  text-xxs font-weight-bolder opacity-7">
+                                        <th class="text-center  text-xs font-weight-bolder opacity-7">
                                             Nomor HP
                                         </th>
-                                        <th class="text-center  text-xxs font-weight-bolder opacity-7">
+                                        <th class="text-center  text-xs font-weight-bolder opacity-7">
                                             Kartu Berobat
                                         </th>
-                                        <th class="text-center  text-xxs font-weight-bolder opacity-7">Aksi</th>
+                                        <th class="text-center  text-xs font-weight-bolder opacity-7">Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -72,10 +72,84 @@
                                                 <td class="align-middle text-center text-sm">{{ $a->tanggal_lahir }}</td>
                                                 <td class="align-middle text-center text-sm">{{ $a->status_keanggotaan }}
                                                 </td>
+                                                <td class="align-middle text-center text-sm">{{ $a->nomor_hp }}</td>
                                                 <td class="align-middle text-center text-sm">
                                                     <a class="text-secondary font-weight-bold text-xs" data-toggle="tooltip"
                                                         data-original-title="Edit user" href="/admin/data/keluarga"
-                                                        role="button">Detail</a>
+                                                        role="button">Download</a>
+                                                </td>
+                                                <td class="align-middle text-center text-sm">
+                                                    <a class="text-secondary font-weight-bold text-xs"
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#modal-default"data-toggle="tooltip"
+                                                        data-original-title="Edit user" role="button">Edit</a>
+                                                    <div class="modal fade" id="modal-default" tabindex="-1" role="dialog"
+                                                        aria-labelledby="modal-default" aria-hidden="true">
+                                                        <div class="modal-dialog modal- modal-dialog-centered modal-"
+                                                            role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h6 class="modal-title" id="modal-title-default">Type
+                                                                        your modal title</h6>
+                                                                    <button type="button" class="btn-close text-dark"
+                                                                        data-bs-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">×</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <form role="form text-left" method="POST"
+                                                                        action="/dashboard/home/update">
+                                                                        @csrf
+                                                                        <input type="hidden" name="id_anggota"
+                                                                            id="id_anggota" value="{{ $a->id_anggota }}">
+                                                                        <label class="">Nama</label>
+                                                                        <div class="input-group mb-3">
+                                                                            <input type="text" class="form-control"
+                                                                                value="{{ $a->nama }}" name="nama">
+                                                                        </div>
+                                                                        <label>NIK</label>
+                                                                        <div class="input-group mb-3">
+                                                                            <input type="text" class="form-control"
+                                                                                placeholder="NIK" name="NIK"
+                                                                                value="{{ $a->NIK }}">
+                                                                        </div>
+                                                                        <label>Tanggal Lahir</label>
+                                                                        <div class="input-group mb-3">
+                                                                            <input type="date" class="form-control"
+                                                                                placeholder="Tanggal Lahir"
+                                                                                name="tanggal_lahir"
+                                                                                value="{{ $a->tanggal_lahir }}">
+                                                                        </div>
+                                                                        <label>Status Keanggotaan</label>
+                                                                        <div class="input-group mb-3">
+                                                                            <select class="form-control form-control"
+                                                                                placeholder="Status Keanggotaan"
+                                                                                name="status_keanggotaan">
+                                                                                <option value="BPJS">BPJS</option>
+                                                                                <option value="umum">Umum</option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <label>Nomor Hp</label>
+                                                                        <div class="input-group mb-3">
+                                                                            <input type="text" class="form-control"
+                                                                                placeholder="Nomor Hp" name="nomor_hp"
+                                                                                value="{{ $a->nomor_hp }}">
+                                                                        </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="submit"
+                                                                        class="btn bg-gradient-primary">Save
+                                                                        changes</button>
+                                                                    <button type="button" class="btn btn-link  ml-auto"
+                                                                        data-bs-dismiss="modal">Close</button>
+                                                                </div>
+                                                            </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                    <a class="ms-3 text-secondary font-weight-bold text-xs"
+                                                        data-toggle="tooltip" data-original-title="Edit user"
+                                                        href="/dashboard/hapus/{{ $a->id_anggota }}" role="button">Hapus</a>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -89,63 +163,63 @@
                                 <span class="btn-inner--icon"><i class="bi bi-person-plus-fill"></i></span>
                                 <span class="btn-inner--text ms-2">Tambah</span>
                             </button>
-
-                            <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary" data-backdrop="static" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal">
-                                Launch demo modal
-                            </button>
-
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                                aria-hidden="true">
-                                <div class="modal-dialog">
+                            <div class="modal fade" id="modal-form" tabindex="-1" role="dialog"
+                                aria-labelledby="modal-form" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
                                     <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            ...
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                        <div class="modal-body p-0">
+                                            <div class="card card-plain">
+                                                <div class="card-header pb-0 text-left">
+                                                    <h3 class="font-weight-bolder text-info text-gradient">Tambah Anggota
+                                                        Keluarga</h3>
+                                                </div>
+                                                <div class="card-body">
+                                                    <form role="form text-left" method="POST"
+                                                        action="/dashboard/home/anggota">
+                                                        @csrf
+                                                        <label>Nama</label>
+                                                        <div class="input-group mb-3">
+                                                            <input type="text" class="form-control" placeholder="Nama"
+                                                                name="nama">
+                                                        </div>
+                                                        <label>NIK</label>
+                                                        <div class="input-group mb-3">
+                                                            <input type="text" class="form-control" placeholder="NIK"
+                                                                name="NIK">
+                                                        </div>
+                                                        <label>Tanggal Lahir</label>
+                                                        <div class="input-group mb-3">
+                                                            <input type="date" class="form-control"
+                                                                placeholder="Tanggal Lahir" name="tanggal_lahir">
+                                                        </div>
+                                                        <label>Status Keanggotaan</label>
+                                                        <div class="input-group mb-3">
+                                                            <select class="form-control form-control"
+                                                                placeholder="Status Keanggotaan"
+                                                                name="status_keanggotaan">
+                                                                <option value="BPJS">BPJS</option>
+                                                                <option value="umum">Umum</option>
+                                                            </select>
+                                                        </div>
+                                                        <label>Nomor Hp</label>
+                                                        <div class="input-group mb-3">
+                                                            <input type="text" class="form-control"
+                                                                placeholder="Nomor Hp" name="nomor_hp">
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-dismiss="modal">Close</button>
+                                                            <button type="submit" class="btn btn-primary">Tambah</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
-                            Launch static backdrop modal
-                        </button>
 
-                        <!-- Modal -->
-                        <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog"
-                            aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        ...
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Understood</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

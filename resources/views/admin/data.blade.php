@@ -14,11 +14,15 @@
                                 <thead>
                                     <th
                                         class="text-xxs font-weight-bolder opacity-7">
-                                        Username
+                                        Nomor KK
                                     </th>
                                     <th
                                         class="text-xxs font-weight-bolder opacity-7">
-                                        Email
+                                        Nama Kepala KK
+                                    </th>
+                                    <th
+                                        class="text-xxs font-weight-bolder opacity-7">
+                                        Alamat
                                     </th>
                                     <th class="text-xxs font-weight-bolder opacity-7">Aksi</th>
                                     </tr>
@@ -26,11 +30,13 @@
                                 <tbody>
                                     @foreach ($users as $a)
                                         <tr class="align-middle">
-                                            <td class="align-middle text-center text-sm">{{ $a->username }}</td>
-                                            <td class="align-middle text-center text-sm">{{ $a->email }}</td>
+                                            <td class="align-middle text-center text-sm">{{ $a->nomor_kk }}</td>
+                                            <td class="align-middle text-center text-sm">{{ $a->nama_kepala_kk }}</td>
+                                            <td class="align-middle text-center text-sm">{{ $a->alamat }}</td>
+                                            {{-- <td class="align-middle text-center text-sm">{{ $a->email }}</td> --}}
                                             <td class="align-middle text-center text-sm">
                                                 <a class="text-secondary font-weight-bold text-xs" data-toggle="tooltip"
-                                                    data-original-title="Edit user" href="/admin/data/keluarga"
+                                                    data-original-title="Edit user" href="/admin/data/keluarga/{{ $a->id_keluarga }}"
                                                     role="button">Detail</a>
                                             </td>
                                         </tr>

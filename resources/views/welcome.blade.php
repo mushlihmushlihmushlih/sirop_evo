@@ -10,11 +10,9 @@
                     <blockquote data-aos="fade-up" data-aos-delay="100">
                         <p>Sistem Informasi Registrasi Online Puskesmas </p>
                     </blockquote>
-                    <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex-fill" data-aos="fade-up" data-aos-delay="200">
                         <a href="/login" class="btn-get-started">Masuk</a>
-                    </div>
-                    <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
-                        <a href="/logout" class="btn-get-started">Logout</a>
+                        <a href="/register" class="btn-get-started">Daftar</a>
                     </div>
                 </div>
             </div>

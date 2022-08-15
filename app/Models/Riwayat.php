@@ -5,12 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Anggota extends Model
+class Riwayat extends Model
 {
     use HasFactory;
-
-    public function Keluarga()
-    {
-        return $this->belongsTo('App\Keluarga','id_keluarga','id_keluarga');
-    }
 }
