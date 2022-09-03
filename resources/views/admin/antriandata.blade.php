@@ -13,10 +13,16 @@
                             <table class="table align-items-center mb-0">
                                 <thead>
                                     <th class="text-xxs font-weight-bolder opacity-7">
-                                        Nama Anggota Keluarga
+                                        Id
                                     </th>
                                     <th class="text-xxs font-weight-bolder opacity-7">
                                         Tanggal Berobat
+                                    </th>
+                                    <th class="text-xxs font-weight-bolder opacity-7">
+                                        Nomor Antrian
+                                    </th>
+                                    <th class="text-xxs font-weight-bolder opacity-7">
+                                        Nama Anggota Keluarga
                                     </th>
                                     <th class="text-xxs font-weight-bolder opacity-7">
                                         Poli
@@ -29,9 +35,11 @@
                                 <tbody>
                                     @foreach ($antrian as $a)
                                         <tr class="align-middle">
-                                            <td class="align-middle text-center text-sm">{{ $a->id_anggota }}</td>
+                                            <td class="align-middle text-center text-sm">{{ $a->id_antrian }}</td>
                                             <td class="align-middle text-center text-sm">{{ $a->tanggal_antrian }}</td>
-                                            <td class="align-middle text-center text-sm">{{ $a->id_poli }}</td>
+                                            <td class="align-middle text-center text-sm">{{ $a->nomor_antrian }}</td>
+                                            <td class="align-middle text-center text-sm">{{ $a->Anggota->nama }}</td>
+                                            <td class="align-middle text-center text-sm">{{ $a->Poli->nama_poli }}</td>
                                             <td class="align-middle text-center text-sm">{{ $a->keluhan }}</td>
                                         </tr>
                                     @endforeach

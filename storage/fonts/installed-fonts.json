@@ -1,0 +1,40 @@
+{
+    "glyphicons halflings": {
+        "normal": "glyphicons_halflings_normal_3f1d765dcf0ca08093f988f82b3aedeb"
+    },
+    "open sans": {
+        "300": "C:\\xampp\\htdocs\\sirop_evo\\storage\\fonts\/open_sans_300_8eafd575bbaef3821514b2ae187a32c3",
+        "normal": "C:\\xampp\\htdocs\\sirop_evo\\storage\\fonts\/open_sans_normal_0de70c49c12ad3d5b30897be0764f760",
+        "600": "C:\\xampp\\htdocs\\sirop_evo\\storage\\fonts\/open_sans_600_80b344cbabc13253146884f38d4f451d",
+        "bold": "open_sans_bold_307c8b05e5c1ebed4511274cd14c5aa1",
+        "300_italic": "C:\\xampp\\htdocs\\sirop_evo\\storage\\fonts\/open_sans_300_italic_b4a7d925e086ad148b06e87bfa6cda0e",
+        "italic": "C:\\xampp\\htdocs\\sirop_evo\\storage\\fonts\/open_sans_italic_e9604750f83ae7f38d39e13a06017607",
+        "600_italic": "C:\\xampp\\htdocs\\sirop_evo\\storage\\fonts\/open_sans_600_italic_048437d93fe9c72528cad9c47513049b",
+        "bold_italic": "C:\\xampp\\htdocs\\sirop_evo\\storage\\fonts\/open_sans_bold_italic_23785369150dc0c2a80d84888c973652",
+        "500": "C:\\xampp\\htdocs\\sirop_evo\\storage\\fonts\/open_sans_500_e5c00ff5fbdabfd1178bcb6213f08eaa"
+    },
+    "montserrat": {
+        "300_italic": "C:\\xampp\\htdocs\\sirop_evo\\storage\\fonts\/montserrat_300_italic_fb5a415793464dedbdefb17fc42d396a",
+        "italic": "C:\\xampp\\htdocs\\sirop_evo\\storage\\fonts\/montserrat_italic_9a283117545b9246f20d56faf2071ead",
+        "500_italic": "C:\\xampp\\htdocs\\sirop_evo\\storage\\fonts\/montserrat_500_italic_a8d93c9bcd6408024258001b80e0033a",
+        "600_italic": "C:\\xampp\\htdocs\\sirop_evo\\storage\\fonts\/montserrat_600_italic_0cee389f6c978f7f2708882291d2fee9",
+        "bold_italic": "C:\\xampp\\htdocs\\sirop_evo\\storage\\fonts\/montserrat_bold_italic_cabe9904a9b42c276b45035227289afd",
+        "300": "C:\\xampp\\htdocs\\sirop_evo\\storage\\fonts\/montserrat_300_39b1972e72c43f1f0e368a33cc82c0ce",
+        "normal": "C:\\xampp\\htdocs\\sirop_evo\\storage\\fonts\/montserrat_normal_b74b751c20b429298921949795391ef1",
+        "500": "C:\\xampp\\htdocs\\sirop_evo\\storage\\fonts\/montserrat_500_a34ab50d0b60a015b62e11133b0bf05b",
+        "600": "C:\\xampp\\htdocs\\sirop_evo\\storage\\fonts\/montserrat_600_54346339d706ca965bcbed499d2795db",
+        "bold": "montserrat_bold_4b7576218464d90344a2d2769cab2f75"
+    },
+    "raleway": {
+        "300_italic": "C:\\xampp\\htdocs\\sirop_evo\\storage\\fonts\/raleway_300_italic_2dc72fd3c0b78420f254b2cbda974e97",
+        "italic": "C:\\xampp\\htdocs\\sirop_evo\\storage\\fonts\/raleway_italic_6fed1aede0d5ffbebceab79c962269a0",
+        "500_italic": "C:\\xampp\\htdocs\\sirop_evo\\storage\\fonts\/raleway_500_italic_6927bc067d2ebdb90cb3772b9a98569e",
+        "600_italic": "C:\\xampp\\htdocs\\sirop_evo\\storage\\fonts\/raleway_600_italic_7172e9e22028a65bd11e3d249ab7bdea",
+        "bold_italic": "C:\\xampp\\htdocs\\sirop_evo\\storage\\fonts\/raleway_bold_italic_24144e9116208d732a90c9d5c5aa2601",
+        "300": "C:\\xampp\\htdocs\\sirop_evo\\storage\\fonts\/raleway_300_f8d2ec01b0b71b68e16aaba12280981f",
+        "normal": "C:\\xampp\\htdocs\\sirop_evo\\storage\\fonts\/raleway_normal_7c961367c4ea677ee00dbeeb506a20c3",
+        "500": "C:\\xampp\\htdocs\\sirop_evo\\storage\\fonts\/raleway_500_0a38ab613485e25337e1ba092e318cb3",
+        "600": "C:\\xampp\\htdocs\\sirop_evo\\storage\\fonts\/raleway_600_6c644471e33d16f8d5451769c698c373",
+        "bold": "raleway_bold_0c255ad52d963afba588d147c173f8ba"
+    }
+}

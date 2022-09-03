@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Poli;
 use App\Models\User;
 use App\Models\Anggota;
+use App\Models\Antrian;
 use App\Models\keluarga;
 use Illuminate\Http\Request;
 use App\Rules\MatchOldPassword;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use PDF;
 
 
 class DashboardController extends Controller
@@ -19,17 +22,25 @@ class DashboardController extends Controller
 
         $keluarga = Keluarga::where("id_user", $user->id)->first();
         $anggota = Anggota::where("id_keluarga", $keluarga->id_keluarga)->get();
+        $poli = Poli::All();
         return view('dashboard.index', [
             'title' => 'Home',
             'keluarga' => $keluarga,
-            'anggota' => $anggota
+            'anggota' => $anggota,
+            'poli' => $poli
         ]);
     }
 
     public function riwayat()
     {
+        $data = Antrian::query()
+        ->orderBy('tanggal_antrian', 'DESC')
+        ->orderBy('nomor_antrian', 'DESC')
+        ->get();
+
         return view('dashboard.riwayat', [
-            'title' => 'Riwayat Kunjungan'
+            'title' => 'Riwayat Kunjungan',
+            'riwayat' => $data
         ]);
     }
 
@@ -65,6 +76,43 @@ class DashboardController extends Controller
         ]);
         // return $request;
         return redirect('/dashboard/home');
+    }
+
+    public function daftar(Request $request)
+    {
+        DB::table('antrians')->insert([
+            'id_anggota' => $request->id_anggota,
+            'nomor_antrian' => $request->nomor_antrian,
+            'tanggal_antrian' => $request->tanggal_antrian,
+            'id_poli' => $request->id_poli,
+            'keluhan' => $request->keluhan
+        ]);
+
+        // return $request;
+        return redirect('/dashboard/home/daftar/tiket/{id}');
+    }
+
+    public function tiket($id)
+    {
+        $data = Antrian::query()
+        ->orderBy('tanggal_antrian', 'DESC')
+        ->orderBy('nomor_antrian', 'DESC')
+        ->first();
+    	return view('dashboard.tiket',['antrian'=>$data]);
+        // return $data;
+    }
+
+    public function cetak()
+    {
+        $antrian = Antrian::query()
+        ->orderBy('nomor_antrian', 'ASC')
+        ->orderBy('tanggal_antrian', 'DESC')
+        ->orderBy('id_poli', 'DESC')
+        ->first();
+        $pdf = PDF::loadview('dashboard.tiket',['antrian'=>$antrian]);
+        set_time_limit(300);
+    	// return $pdf->download('antrian.pdf');
+    	return $pdf->download("tiket ".$antrian->Anggota->nama."-".$antrian->tanggal_antrian.".pdf");
     }
 
     public function updateAnggota(Request $request)

@@ -7,7 +7,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
     <title>
-        Admin - {{ $title }}
+        {{ Auth::user()->role }} - {{ $title }}
     </title>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <!--     Fonts and icons     -->
@@ -31,7 +31,7 @@
         <div class="sidenav-header">
             <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
                 aria-hidden="true" id="iconSidenav"></i>
-            <a class="navbar-brand m-0" href="/admin/home" target="_blank">
+            <a class="navbar-brand m-0" href="/{{ Auth::user()->role }}/home" target="_blank">
                 <img src="{{ URL::asset('/img/puskesmas.png') }}" class="navbar-brand-img h-100" alt="main_logo">
                 <span class="ms-1 font-weight-bold">SIROP Aurduri</span>
             </a>
@@ -40,7 +40,7 @@
         <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link {{ $title === 'Home' ? 'active' : '' }}" href="/admin/home">
+                    <a class="nav-link {{ $title === 'Home' ? 'active' : '' }}" href="/{{ Auth::user()->role }}/home">
                         <div
                             class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center ">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -53,7 +53,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ $title === 'Data Keluarga' ? 'active' : '' }}" href="/admin/data">
+                    <a class="nav-link {{ $title === 'Data Keluarga' ? 'active' : '' }}" href="/{{ Auth::user()->role }}/data">
                         <div
                             class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center text-secondary">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -67,7 +67,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ $title === 'Poli' ? 'active' : '' }}" href="/admin/poli">
+                    <a class="nav-link {{ $title === 'Poli' ? 'active' : '' }}" href="/{{ Auth::user()->role }}/poli">
                         <div
                             class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center text-secondary">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -80,7 +80,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ $title === 'Dokter' ? 'active' : '' }}" href="/admin/dokter">
+                    <a class="nav-link {{ $title === 'Dokter' ? 'active' : '' }}" href="/{{ Auth::user()->role }}/dokter">
                         <div
                             class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center text-secondary">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -94,7 +94,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ $title === 'Kontrol Antrian' ? 'active' : '' }}" href="/admin/antrian">
+                    <a class="nav-link {{ $title === 'Kontrol Antrian' ? 'active' : '' }}" href="/{{ Auth::user()->role }}/antrian">
                         <div
                             class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center text-secondary">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -105,6 +105,20 @@
                             </svg>
                         </div>
                         <span class="nav-link-text ms-1">Antrian</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ $title === 'Data Antrian' ? 'active' : '' }}" href="/{{ Auth::user()->role }}/antrian/data">
+                        <div
+                            class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center text-secondary">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-person-square" viewBox="0 0 16 16">
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                                <path
+                                    d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1v-1c0-1-1-4-6-4s-6 3-6 4v1a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12z" />
+                            </svg>
+                        </div>
+                        <span class="nav-link-text ms-1">Data Antrian</span>
                     </a>
                 </li>
             </ul>
@@ -118,7 +132,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                         <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark"
-                                href="javascript:;">Admin</a>
+                                href="javascript:;">{{ Auth::user()->role }}</a>
                         </li>
                         <li class="breadcrumb-item text-sm text-dark active" aria-current="page">{{ $title }}
                         </li>
@@ -127,23 +141,31 @@
                 </nav>
 
                 @auth
-                    <li class="nav-item dropdown pe-2 d-flex align-items-center">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->username }}
+                    <div class="dropdown">
+                        <a href="javascript:;" class="btn bg-gradient-dark dropdown-toggle " data-bs-toggle="dropdown"
+                            id="navbarDropdownMenuLink2">
+                            <i class="bi bi-person-fill ms-2"></i>{{ Auth::user()->username }}
                         </a>
-                        <div class="dropdown-menu dropdown-menu-end " aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item text-dark" href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
-                                                         document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
+                            <li>
+                                <a class="dropdown-item" href="/">
+                                    Home
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item text-dark" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                        </div>
-                    @endauth
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                @endauth
             </div>
         </nav>
         @yield('content')

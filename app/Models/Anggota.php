@@ -13,4 +13,8 @@ class Anggota extends Model
     {
         return $this->belongsTo('App\Keluarga','id_keluarga','id_keluarga');
     }
+    public function Antrian()
+    {
+        return $this->hasMany('App\Antrian','id_antrian','id_antrian');
+    }
 }

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Dokter;
 use App\Models\Anggota;
+use App\Models\Antrian;
+use App\Models\Nomor;
 use App\Models\Keluarga;
 use App\Models\Poli;
 use Illuminate\Http\Request;
@@ -54,17 +56,20 @@ class AdminController extends Controller
 
     public function dataAntrian()
     {
-        $data = DB::table('antrians')->get();
+        $data = Antrian::query()
+        ->orderBy('tanggal_antrian', 'DESC')
+        ->orderBy('nomor_antrian', 'DESC')
+        ->get();
 
         return view('admin.antriandata', [
-            'title' => 'Kontrol Antrian',
+            'title' => 'Data Antrian',
             'antrian' => $data
         ]);
     }
     public function poli()
     {
         $data = DB::table('polis')->get();
-
+        
         return view('admin.poli', [
             'title' => 'Poli',
             'poli' => $data

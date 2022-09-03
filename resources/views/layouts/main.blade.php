@@ -65,7 +65,7 @@
                                 {{ Auth::user()->username }}
                             </a>
                             <div class="dropdown-menu dropdown-menu-end " aria-labelledby="navbarDropdown">
-                                <a href="/dashboard/home" class="dropdown-item text-dark">Dashboard</a>
+                                <a href="/{{ Auth::user()->role }}/home" class="dropdown-item text-dark">Dashboard</a>
                                 <a class="dropdown-item text-dark" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                                          document.getElementById('logout-form').submit();">

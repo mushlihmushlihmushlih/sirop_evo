@@ -22,29 +22,26 @@
                                     </th>
                                     <th
                                         class="text-xxs font-weight-bolder opacity-7 ">
-                                        Dokter
+                                        Keluhan
                                     </th>
                                     <th
                                         class="text-xxs font-weight-bolder opacity-7 ">
                                         Bukti Pendaftaran
                                     </th>
-                                    <th
-                                        class="text-xxs font-weight-bolder opacity-7 ">
-                                        Keterangan
-                                    </th>
                                 </thead>
                                 <tbody>
-                                    {{-- @foreach ($users as $a)
+                                    @foreach ($riwayat as $r)
                                         <tr class="align-middle">
-                                            <td class="align-middle text-center text-sm">{{ $a->username }}</td>
-                                            <td class="align-middle text-center text-sm">{{ $a->email }}</td>
+                                            <td class="align-middle text-center text-sm">{{ $r->tanggal_antrian }}</td>
+                                            <td class="align-middle text-center text-sm">{{ $r->Poli->nama_poli }}</td>
+                                            <td class="align-middle text-center text-sm">{{ $r->keluhan }}</td>
                                             <td class="align-middle text-center text-sm">
                                                 <a class="text-secondary font-weight-bold text-xs" data-toggle="tooltip"
                                                     data-original-title="Edit user" href="/admin/data/keluarga"
-                                                    role="button">Detail</a>
+                                                    role="button">Download</a>
                                             </td>
                                         </tr>
-                                    @endforeach --}}
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

@@ -20,6 +20,12 @@
                       </li>
                       <li class="list-group-item border-0 d-flex justify-content-left ps-0 mb-2 border-radius-lg">
                           <div class="d-flex flex-column">
+                              <span class="mb-2 text-xl">Nomor KK: <span
+                                      class="text-dark font-weight-bold ms-sm-2">{{ $keluarga->id_user }}</span></span>
+                          </div>
+                      </li>
+                      <li class="list-group-item border-0 d-flex justify-content-left ps-0 mb-2 border-radius-lg">
+                          <div class="d-flex flex-column">
                               <span class="mb-2 text-xl">Nama Kepala KK: <span
                                       class="text-dark font-weight-bold ms-sm-2">{{ $keluarga->nama_kepala_kk }}</span></span>
                           </div>

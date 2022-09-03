@@ -43,7 +43,7 @@
                             <div class="table-responsive p-0">
                                 <table class="table align-items-center mb-0">
                                     <thead>
-                                        <th class="text-center  text-xs font-weight-bolder opacity-7">
+                                        <th class="text-center text-xs font-weight-bolder opacity-7">
                                             Nama
                                         </th>
                                         <th class="text-center  text-xs font-weight-bolder opacity-7">
@@ -149,7 +149,8 @@
                                                     </div>
                                                     <a class="ms-3 text-secondary font-weight-bold text-xs"
                                                         data-toggle="tooltip" data-original-title="Edit user"
-                                                        href="/dashboard/hapus/{{ $a->id_anggota }}" role="button">Hapus</a>
+                                                        href="/dashboard/hapus/{{ $a->id_anggota }}"
+                                                        role="button">Hapus</a>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -220,6 +221,74 @@
                             </div>
                         </div>
 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{-- modal form --}}
+    <div class="modal fade" id="modal-berobat" tabindex="-1" role="dialog" aria-labelledby="modal-form"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-body p-0">
+                    <div class="card card-plain">
+                        <div class="card-header pb-0 text-left">
+                            <h3 class="font-weight-bolder text-info text-gradient">Daftar Berobat</h3>
+                        </div>
+                        <div class="card-body">
+                            <form role="form text-left" method="POST" action="/dashboard/home/daftar">
+                                @csrf
+                                <label>Pilih Anggota Keluarga</label>
+                                <div class="input-group mb-3">
+                                    <select name="id_anggota" id="id_anggota" class="form-control">
+                                        <option value=""> -- Pilih Satu --</option>
+                                        @foreach ($anggota as $a)
+                                            <option value="{{ $a->id_anggota }}">{{ $a->nama }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <label>Pilih Tanggal Berobat</label>
+                                <div class="input-group mb-3">
+                                    <input type="date" class="form-control" placeholder="Pilih Tanggal"
+                                        name="tanggal_antrian" id="tanggal_antrian">
+                                </div>
+                                <label>Pilih Nomor Antrian</label>
+                                <div class="input-group mb-3">
+                                    <select class="form-control form-control" name="nomor_antrian" id="nomor_antrian">
+                                        <option value="">-- Pilih Satu --</option>
+                                        <?php
+                                            for ($i=1; $i<=20; $i++)
+                                        {
+                                            ?>
+                                        <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                        <?php
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                                <label>Pilih Poli</label>
+                                <div class="input-group mb-3">
+                                    <select class="form-control form-control" placeholder="Status Keanggotaan"
+                                        name="id_poli" id="id_poli">
+                                        <option value="">-- Pilih Satu --</option>
+                                        @foreach ($poli as $p)
+                                            <option value="{{ $p->id_poli }}">{{ $p->nama_poli }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <label>Keluhan</label>
+                                <div class="input-group mb-3">
+                                    <textarea type="text" class="form-control" name="keluhan" id="keluhan">
+                                    </textarea>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Tambah</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -30,8 +30,9 @@
 
                                                 {{-- modal trigger --}}
                                                 <a class="text-secondary font-weight-bold text-xs" data-bs-toggle="modal"
-                                                    data-bs-target="#modal-edit"data-toggle="modal"
-                                                    data-original-title="Edit user" role="button">Edit</a>
+                                                    data-bs-target="#modal-edit" data-toggle="modal"
+                                                    data-original-title="Edit user" role="button"
+                                                    data-id="{{ $p->id_poli }}">Edit</a>
 
                                                 {{-- modal --}}
                                                 <div class="modal fade" id="modal-edit" tabindex="-1" role="dialog"
@@ -40,7 +41,8 @@
                                                         role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h6 class="modal-title" id="modal-title-default">Edit data poli</h6>
+                                                                <h6 class="modal-title" id="modal-title-default">Edit data
+                                                                    poli</h6>
                                                                 <button type="button" class="btn-close text-dark"
                                                                     data-bs-dismiss="modal" aria-label="Close">
                                                                     <span aria-hidden="true">×</span>
@@ -62,7 +64,7 @@
                                                                         <input type="text" class="form-control"
                                                                             placeholder="kuota" name="kuota"
                                                                             value="{{ $p->kuota }}">
-                                                                    </div>                        
+                                                                    </div>
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="submit" class="btn bg-gradient-primary">Save
@@ -76,7 +78,7 @@
                                                 </div>
                                                 <a class="ms-3 text-secondary font-weight-bold text-xs"
                                                     data-toggle="tooltip" data-original-title="Edit user"
-                                                    href="/admin/poli/delete/{{ $p->id_poli }}" role="button">Hapus</a>                                
+                                                    href="/admin/poli/delete/{{ $p->id_poli }}" role="button">Hapus</a>
                                             </td>
                                         </tr>
                                     @endforeach

@@ -36,7 +36,7 @@
                                             {{-- <td class="align-middle text-center text-sm">{{ $a->email }}</td> --}}
                                             <td class="align-middle text-center text-sm">
                                                 <a class="text-secondary font-weight-bold text-xs" data-toggle="tooltip"
-                                                    data-original-title="Edit user" href="/admin/data/keluarga/{{ $a->id_keluarga }}"
+                                                    data-original-title="Edit user" href="/{{ Auth::user()->role }}/data/keluarga/{{ $a->id_keluarga }}"
                                                     role="button">Detail</a>
                                             </td>
                                         </tr>

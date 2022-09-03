@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('antrians', function (Blueprint $table) {
             $table->id('id_antrian');
+            $table->integer('nomor_antrian');
             $table->foreignId('id_anggota');
             $table->date('tanggal_antrian');
             $table->foreignId('id_poli');

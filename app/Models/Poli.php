@@ -15,4 +15,8 @@ class Poli extends Model
     {
         return $this->hasMany(Dokter::class);
     }
+    public function Antrian()
+    {
+        return $this->hasMany(Antrian::class,'id_antrian','id_antrian');
+    }
 }

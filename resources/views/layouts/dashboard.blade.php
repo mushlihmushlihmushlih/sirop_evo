@@ -38,7 +38,7 @@
         <hr class="horizontal dark mt-0">
         <div class="sidenav-header position-relative">
             <button class="position-absolute top-50 start-50 translate-middle btn btn-icon btn-3 btn-primary"
-                type="button">
+                type="button" data-bs-toggle="modal" data-bs-target="#modal-berobat">
                 <span class="btn-inner--icon"><i class="bi bi-plus-lg"></i></span>
                 <span class="btn-inner--text">Daftar Berobat</span>
             </button>
@@ -108,27 +108,37 @@
                     <h6 class="font-weight-bolder mb-0">{{ $title }}</h6>
                 </nav>
                 @auth
-                    <li class="nav-item dropdown pe-2 d-flex align-items-center">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->username }}
+                    <div class="dropdown">
+                        <a href="javascript:;" class="btn bg-gradient-dark dropdown-toggle " data-bs-toggle="dropdown"
+                            id="navbarDropdownMenuLink2">
+                            <i class="bi bi-person-fill ms-2"></i>{{ Auth::user()->username }}
                         </a>
-                        <div class="dropdown-menu dropdown-menu-end " aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item text-dark" href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
+                            <li>
+                                <a class="dropdown-item" href="/">
+                                    Home
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item text-dark" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
                                                          document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
+                                    {{ __('Logout') }}
+                                </a>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                        </div>
-                    @endauth
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                @endauth
             </div>
         </nav>
         @yield('content')
     </main>
+
+
 
 
 
